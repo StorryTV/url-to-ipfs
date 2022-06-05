@@ -123,14 +123,14 @@
 					})
 						.then(response => response.blob())
 						.then(blob => {
-						fetch('https://storry.tv/ipfs/upload', {
+						fetch('https://hardbin.com/ipfs/upload', {
 							'method': 'POST',
 							'body': blob,
 							'credentials': 'omit'
 						})
 							.then(response => document.getElementById('uploaded').innerHTML += '<p><a href="' + url + '" target="_blank">' + url + '</a> => <a href="https://ipfs.storry.tv/ipfs/' + response.headers.get('Ipfs-Hash') + '" target="_blank">' + response.headers.get('Ipfs-Hash') + '</a></p><br><button id="' + response.headers.get('Ipfs-Hash') + '" onclick="document.getElementById(\'' + response.headers.get('Ipfs-Hash') + '\').innerHTML = \'Pinning...\';pinHashtoInfura(\'' + response.headers.get('Ipfs-Hash') + '\').then(() => document.getElementById(\'' + response.headers.get('Ipfs-Hash') + '\').innerHTML = \'Pinned!\').catch(() => document.getElementById(\'' + response.headers.get('Ipfs-Hash') + '\').innerHTML = \'Failed\');">Pin Hash to Infura IPFS Node</button>')
 							.catch((err) => {
-							fetch('https://hardbin.com/ipfs/upload', {
+							fetch('https://storry.tv/ipfs/upload', {
 								'method': 'POST',
 								'body': blob,
 								'credentials': 'omit'
@@ -161,13 +161,13 @@
 					})
 						.then(response => response.blob())
 						.then(blob => {
-						fetch('https://storry.tv/ipfs/upload', {
+						fetch('https://hardbin.com/ipfs/upload', {
 							'method': 'POST',
 							'body': blob,
 							'credentials': 'omit'})
 							.then(response => document.getElementById('uploaded').innerHTML += '<p><a href="https://ipfs.io/ipfs/' + ipfsPath + '" target="_blank">' + ipfsPath + '</a> => <a href="https://ipfs.storry.tv/ipfs/' + response.headers.get('Ipfs-Hash') + '" target="_blank">' + response.headers.get('Ipfs-Hash') + '</a></p><br><button id="' + response.headers.get('Ipfs-Hash') + '" onclick="document.getElementById(\'' + response.headers.get('Ipfs-Hash') + '\').innerHTML = \'Pinning...\';pinHashtoInfura(\'' + response.headers.get('Ipfs-Hash') + '\').then(() => document.getElementById(\'' + response.headers.get('Ipfs-Hash') + '\').innerHTML = \'Pinned!\').catch(() => document.getElementById(\'' + response.headers.get('Ipfs-Hash') + '\').innerHTML = \'Failed\');">Pin Hash to Infura IPFS Node</button>')
 							.catch((err) => {
-							fetch('https://hardbin.com/ipfs/upload', {
+							fetch('https://storry.tv/ipfs/upload', {
 								'method': 'POST',
 								'body': blob,
 								'credentials': 'omit'
