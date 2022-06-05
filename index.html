@@ -11,7 +11,7 @@
 		<meta name="theme-color" content="#dddddd">
 		<!--<link href="https://cloudflare-ipfs.com/ipfs/QmYdbKzMNQhNYCgNAkUdPCJwARp6M8QmxfPE6w4G8sKbSU/Inter-Medium.ttf" integrity="sha512-2MjS5zQT/DltY/YDtAJONIyH/bSTCGpBgYe/3GClY5TDzN61McfFHM4spsFPVHVlVN1RkXk5v8Wst88lAQSUGw==" crossorigin="anonymous" rel="stylesheet">-->
 		<link href="./Inter-Medium.ttf" rel="stylesheet">
-    <style>
+		<style>
 			@media only screen and (max-width: 600px) {
 				p, form, input, button {
 					font-size: 24px;
@@ -123,22 +123,14 @@
 					})
 						.then(response => response.blob())
 						.then(blob => {
-						fetch('https://hardbin.com/ipfs/upload', {
+						fetch('https://storry.tv/ipfs/upload', {
 							'method': 'POST',
 							'body': blob,
 							'credentials': 'omit'
 						})
-							.then(response => document.getElementById('uploaded').innerHTML += '<p><a href="' + url + '" target="_blank">' + url + '</a> => <a href="https://ipfs.storry.tv/ipfs/' + response.headers.get('Ipfs-Hash') + '" target="_blank">' + response.headers.get('Ipfs-Hash') + '</a></p><br><button id="' + response.headers.get('Ipfs-Hash') + '" onclick="document.getElementById(\'' + response.headers.get('Ipfs-Hash') + '\').innerHTML = \'Pinning...\';pinHashtoInfura(\'' + response.headers.get('Ipfs-Hash') + '\').then(() => document.getElementById(\'' + response.headers.get('Ipfs-Hash') + '\').innerHTML = \'Pinned!\').catch(() => document.getElementById(\'' + response.headers.get('Ipfs-Hash') + '\').innerHTML = \'Failed\');">Pin Hash to Infura IPFS Node</button>')
-							.catch((err) => {
-							fetch('https://storry.tv/ipfs/upload', {
-								'method': 'POST',
-								'body': blob,
-								'credentials': 'omit'
-							})
-								.then(response => document.getElementById('uploaded').innerHTML += '<p><a href="' + url + '" target="_blank">' + url + '</a> => <a href="https://hardbin.com/ipfs/' + response.headers.get('Ipfs-Hash') + '" target="_blank">' + response.headers.get('Ipfs-Hash') + '</a></p><br><button id="' + response.headers.get('Ipfs-Hash') + '" onclick="document.getElementById(\'' + response.headers.get('Ipfs-Hash') + '\').innerHTML = \'Pinning...\';pinHashtoInfura(\'' + response.headers.get('Ipfs-Hash') + '\').then(() => document.getElementById(\'' + response.headers.get('Ipfs-Hash') + '\').innerHTML = \'Pinned!\').catch(() => document.getElementById(\'' + response.headers.get('Ipfs-Hash') + '\').innerHTML = \'Failed\');">Pin Hash to Infura IPFS Node</button>')
-								.catch(() => {
-								document.getElementById('error').innerHTML += '<p>Error uploading this URL to our IPFS nodes, max upload size is 100MB.</p>';
-							});
+							.then(response => document.getElementById('uploaded').innerHTML += '<p><a href="' + url + '" target="_blank">' + url + '</a> => <a href="https://hardbin.com/ipfs/' + response.headers.get('Ipfs-Hash') + '" target="_blank">' + response.headers.get('Ipfs-Hash') + '</a></p><br><button id="' + response.headers.get('Ipfs-Hash') + '" onclick="document.getElementById(\'' + response.headers.get('Ipfs-Hash') + '\').innerHTML = \'Pinning...\';pinHashtoInfura(\'' + response.headers.get('Ipfs-Hash') + '\').then(() => document.getElementById(\'' + response.headers.get('Ipfs-Hash') + '\').innerHTML = \'Pinned!\').catch(() => document.getElementById(\'' + response.headers.get('Ipfs-Hash') + '\').innerHTML = \'Failed\');">Pin Hash to Infura IPFS Node</button>')
+							.catch(() => {
+							document.getElementById('error').innerHTML += '<p>Error uploading this URL to our IPFS nodes, max upload size is 100MB.</p>';
 						});
 					}).catch((err) => {
 						document.getElementById('error').innerHTML += '<p>Error fetching this URL, only URL\'s with CORS enabled can be used.</p>';
@@ -161,21 +153,14 @@
 					})
 						.then(response => response.blob())
 						.then(blob => {
-						fetch('https://hardbin.com/ipfs/upload', {
+						fetch('https://storry.tv/ipfs/upload', {
 							'method': 'POST',
 							'body': blob,
-							'credentials': 'omit'})
-							.then(response => document.getElementById('uploaded').innerHTML += '<p><a href="https://ipfs.io/ipfs/' + ipfsPath + '" target="_blank">' + ipfsPath + '</a> => <a href="https://ipfs.storry.tv/ipfs/' + response.headers.get('Ipfs-Hash') + '" target="_blank">' + response.headers.get('Ipfs-Hash') + '</a></p><br><button id="' + response.headers.get('Ipfs-Hash') + '" onclick="document.getElementById(\'' + response.headers.get('Ipfs-Hash') + '\').innerHTML = \'Pinning...\';pinHashtoInfura(\'' + response.headers.get('Ipfs-Hash') + '\').then(() => document.getElementById(\'' + response.headers.get('Ipfs-Hash') + '\').innerHTML = \'Pinned!\').catch(() => document.getElementById(\'' + response.headers.get('Ipfs-Hash') + '\').innerHTML = \'Failed\');">Pin Hash to Infura IPFS Node</button>')
-							.catch((err) => {
-							fetch('https://storry.tv/ipfs/upload', {
-								'method': 'POST',
-								'body': blob,
-								'credentials': 'omit'
-							})
-								.then(response => document.getElementById('uploaded').innerHTML += '<p><a href="https://ipfs.io/ipfs/' + ipfsPath + '" target="_blank">' + ipfsPath + '</a> => <a href="https://hardbin.com/ipfs/' + response.headers.get('Ipfs-Hash') + '" target="_blank">' + response.headers.get('Ipfs-Hash') + '</a></p><br><button id="' + response.headers.get('Ipfs-Hash') + '" onclick="document.getElementById(\'' + response.headers.get('Ipfs-Hash') + '\').innerHTML = \'Pinning...\';pinHashtoInfura(\'' + response.headers.get('Ipfs-Hash') + '\').then(() => document.getElementById(\'' + response.headers.get('Ipfs-Hash') + '\').innerHTML = \'Pinned!\').catch(() => document.getElementById(\'' + response.headers.get('Ipfs-Hash') + '\').innerHTML = \'Failed\');">Pin Hash to Infura IPFS Node</button>')
-								.catch(() => {
-								document.getElementById('error').innerHTML += '<p>Error uploading this URL to our IPFS nodes, max upload size is 100MB.</p>';
-							});
+							'credentials': 'omit'
+						})
+							.then(response => document.getElementById('uploaded').innerHTML += '<p><a href="https://ipfs.io/ipfs/' + ipfsPath + '" target="_blank">' + ipfsPath + '</a> => <a href="https://hardbin.com/ipfs/' + response.headers.get('Ipfs-Hash') + '" target="_blank">' + response.headers.get('Ipfs-Hash') + '</a></p><br><button id="' + response.headers.get('Ipfs-Hash') + '" onclick="document.getElementById(\'' + response.headers.get('Ipfs-Hash') + '\').innerHTML = \'Pinning...\';pinHashtoInfura(\'' + response.headers.get('Ipfs-Hash') + '\').then(() => document.getElementById(\'' + response.headers.get('Ipfs-Hash') + '\').innerHTML = \'Pinned!\').catch(() => document.getElementById(\'' + response.headers.get('Ipfs-Hash') + '\').innerHTML = \'Failed\');">Pin Hash to Infura IPFS Node</button>')
+							.catch(() => {
+							document.getElementById('error').innerHTML += '<p>Error uploading this URL to our IPFS nodes, max upload size is 100MB.</p>';
 						});
 					}).catch((err) => {
 						document.getElementById('error').innerHTML += '<p>Error fetching this IPFS Path, please check if it is correct.</p>';
