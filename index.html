@@ -123,6 +123,10 @@
 					})
 						.then(response => response.blob())
 						.then(blob => {
+						if ((blob.size / (1024*1024)) > 100) {
+							document.getElementById('error').innerHTML += '<p>This resource is too big. Only 100MB or less is allowed.</p>';
+							return;
+						}
 						fetch('https://storry.tv/ipfs/upload', {
 							'method': 'POST',
 							'body': blob,
@@ -153,6 +157,10 @@
 					})
 						.then(response => response.blob())
 						.then(blob => {
+						if ((blob.size / (1024*1024)) > 100) {
+							document.getElementById('error').innerHTML += '<p>This resource is too big. Only 100MB or less is allowed.</p>';
+							return;
+						}
 						fetch('https://storry.tv/ipfs/upload', {
 							'method': 'POST',
 							'body': blob,
